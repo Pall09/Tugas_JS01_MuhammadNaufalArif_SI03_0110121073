@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luas Lingkaran</title>
+    <style>
+        .container {
+            border: 2px solid black;
+            border-radius: 5px;
+            margin: 150px auto;
+            width: 40%;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        #jariJari {
+            width: 20%;
+            height: 15px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        #hitung {
+        background-color: rgb(184, 189, 184 0.856);
+        border-radius: 5px;
+        margin: 15px auto;
+        width: 45%;
+        height: 30px;
+        cursor: pointer;
+        transition: all 0.5s;
+        }
+
+        #hitung:hover {
+        background-color: rgb(184, 189, 184);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Hitung Luas dan Keliling Lingkaran</h2>
+        <div class="diket">
+            <label for="">Diketahui Jari-Jari = </label>
+            <input type="number" name="" id="jariJari">
+        </div>
+        <button id="hitung" onclick="hitungLingkaran()">Hitung Luas dan Keliling</button>
+        <p id="hasilLuas"></p>
+        <p id="hasilKeliling"></p>
+    </div>
+
+    <script>
+        
+        function hitungLingkaran() {
+            let phi = 3.14;
+            let jariJari = document.getElementById('jariJari');
+
+            let hasilLuas = document.getElementById('hasilLuas');
+            let hasilKeliling = document.getElementById('hasilKeliling');
+
+            let jari2 = parseFloat(jariJari.value);
+
+            luasLingkaran = phi * (jari2 * jari2);
+            kelilingLingkaran = 2 * phi * jari2;
+
+            hasilLuas.innerHTML = "Luas lingkaran = " + luasLingkaran;
+            hasilKeliling.innerHTML = "Keliling Lingkaran = " + kelilingLingkaran;
+        }
+
+    </script>
+
+
+    <!-- 
+        Rumus
+        Luas lingkaran : 3,14 x (r x r)
+        Keliling lingkaran : 2 x 3,14 x r
+    -->
+
+</body>
+</html>
+
+<!-- Soal 1 : Menghitung luas dan keliling lingkaran
+Tulislah program untuk menghitung luas dan keliling lingkaran diberikan jari-jari lingkaran ! -->

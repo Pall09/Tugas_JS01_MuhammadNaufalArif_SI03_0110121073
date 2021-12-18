@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung Biaya Parkir</title>
+
+    <style>
+        .container {
+            border: 2px solid black;
+            border-radius: 5px;
+            margin: 150px auto;
+            width: 25%;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        
+        #masukParkir{
+            width: 20%;
+            height: 15px;
+            margin: 5px auto;
+            text-align: center;
+        }
+
+        #keluarParkir {
+            width: 20%;
+            height: 15px;
+            margin: 5px auto;
+            text-align: center;
+        }
+
+
+        #hitung {
+        background-color: rgb(184, 189, 184 0.856);
+        border-radius: 5px;
+        margin: 15px auto;
+        width: 45%;
+        height: 30px;
+        cursor: pointer;
+        transition: all 0.5s;
+        }
+
+        #hitung:hover {
+        background-color: rgb(184, 189, 184);
+        }
+
+        .tulisanHasil {
+            display: flex;
+            margin: 0 auto;
+            gap: 5px;
+        }
+
+        #hasilBiaya {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Hitung Biaya Parkir</h2>
+        <div class="masuk">
+            <label for="">Masuk Parkir Jam : </label>
+            <input type="number" id="masukParkir">
+        </div>
+        <div class="keluar">
+            <label for="">Keluar Parkir Jam : </label>
+            <input type="number" id="keluarParkir">
+        </div>
+        <button id="hitung" onclick="hitungBiayaParkir()">Count</button>
+        <div class="tulisanHasil">
+            <p>Biaya Parkir adalah = </p><p id="hasilBiaya">3000 rupiah</p>
+        </div>
+    </div>
+
+    <script>
+        function hitungBiayaParkir() {
+            const masukParkir = document.getElementById('masukParkir').value;
+            const keluarParkir = document.getElementById('keluarParkir').value;
+            let jamParkir = keluarParkir - masukParkir;
+            let hasilBiaya = document.getElementById('hasilBiaya');
+
+            if (jamParkir < 2) {
+                hasilBiaya.innerHTML = " 3000 Rupiah";
+                hasilBiaya.style.color = 'black';
+            } else {
+                hasilBiaya.innerHTML = (jamParkir * 1000 + 1000) + " Rupiah"; 
+                hasilBiaya.style.color = 'black';
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+
+<!-- 
+    Soal 3 : Menghitung Biaya Parkir
+    Tulislah program untuk menghitung biaya parkir, yang dihitung berdasarkan lama parkir kendaraan
+    yaitu selisih jam masuk dengan jam keluar kendaraan. Jika parkir 2 jam pertama maka dikenakan biaya
+    parkir 3.000 rupiah, dan per jam berikut nya kena biaya tambahan 1.000 rupiah.
+    Jam Masuk Jam Keluar Lama Keluaran Biaya
+    8 10 2 jam 3.000
+    7 11 4 Jam 5.000
+
+-->
